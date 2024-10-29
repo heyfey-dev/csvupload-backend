@@ -4,10 +4,21 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const app = express();
-const port = process.env.PORT || 5000;
+
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://127.0.0.1:5500', 'https://heyfey-dev.github.io'];
+   
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
+
 app.use(express.json());
 
 // Connect to MongoDB using Mongoose
@@ -44,6 +55,7 @@ app.post('/api/addRecord', async (req, res) => {
   });
   
 // Start the server
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.warn(`App listening on http://localhost:${PORT}`);
 });
