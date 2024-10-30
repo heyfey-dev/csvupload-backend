@@ -53,6 +53,11 @@ app.post('/api/addRecord', async (req, res) => {
       res.status(500).json({ error: 'Failed to add record to MongoDB' });
     }
   });
+
+  app.get('/', (req, res) => {
+    res.send("Server is running!");
+});
+
   
 // Start the server
 const port = process.env.PORT || 5000;
