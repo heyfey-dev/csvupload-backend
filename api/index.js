@@ -9,8 +9,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: (origin, callback) => {
-    const allowedOrigins = ['http://127.0.0.1:5500', 'https://heyfey-dev.github.io'];
-   
+    const allowedOrigins = ['http://127.0.0.1:5500', 'https://heyfey-dev.github.io', 'https://csvu-pload.vercel.app'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -18,6 +17,7 @@ app.use(cors({
     }
   }
 }));
+
 
 app.use(express.json());
 
