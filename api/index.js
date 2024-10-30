@@ -57,5 +57,5 @@ app.post('/api/addRecord', async (req, res) => {
 // Start the server
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.warn(`App listening on http://localhost:${PORT}`);
+  console.warn(`App listening on http://localhost:${port}`);
 });

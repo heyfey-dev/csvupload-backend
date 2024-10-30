@@ -8,6 +8,12 @@
           { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
         ]
       }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/(.*)",
+        "destination": "/api/$1"
+      }
     ]
   }
   
